@@ -1,9 +1,13 @@
-# Open-Source Code Review: AI Network Threat Detection Framework
+## 📐 Deployment Environments & Architectural Execution Modes
 
-## 🔍 Context & Research Objective
-This repository serves as a **Threat Intelligence & Code Auditing Case Study**[span_1](start_span)[span_1](end_span). I discovered an automated network monitoring script utilizing `IsolationForest` and `tshark` during my monitoring of threat-intel nodes[span_2](start_span)[span_2](end_span). As an independent researcher, my objective is to reverse-engineer, document, and critically audit its structural workflows[span_3](start_span)[span_3](end_span).
+To ensure cross-platform validation, this framework is engineered to run in two distinct operational modes depending on host kernel privileges:
 
-## 🛠️ Code Audit Highlights
-* **Shared Resource Hazard:** Identified a critical file-system race condition where asynchronous threads read/write to a single un-locked static file (`traffic.csv`)[span_4](start_span)[span_4](end_span).
-* **Feature Constraints:** Highlighted the vulnerability of the 1-Dimensional volumetric feature space to slow-brute network techniques[span_5](start_span)[span_5](end_span).
+### 1. Production Mode (`AICS_production.py`)
+* **Target Environment:** Enterprise Linux Environments (Ubuntu/Debian Server) with full root/kernel privileges.
+* **Core Dependency:** Requires `tshark` binary system packages for raw socket packet ingestion and `scikit-learn` for active algorithmic inference.
+
+### 2. Emulated Simulation Mode (`AICS_simulation.py`)
+* **Target Environment:** Restricted POSIX environments / Mobile Sandboxes (Android Termux subsystems).
+* **Core Mechanism:** Since mobile mobile kernels restrict raw network interface access (blocking raw packet capturing via `tshark`), I built an in-engine **Traffic Simulator** alongside a **Mock Isolation Forest Layer**. 
+* **Objective:** This simulates multi-threaded concurrency, API telemetry logging, and Flask endpoints on the go, allowing for rapid interface and dashboard testing without compiling heavy C-binary wheels on restricted mobile processors.
 * 
